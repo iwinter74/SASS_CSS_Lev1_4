@@ -1,0 +1,109 @@
+
+@import "variables.scss";
+@mixin article-color {
+    color: rgba(0, 128, 0, 0.781);
+}
+@mixin margin-b {
+    margin-bottom: .5rem;
+}
+@mixin color {
+    color: rgba(255, 0, 0, 0.705);
+}
+* {
+margin: 0;
+border: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.header {
+height: 6rem;
+text-align: center;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+padding: $small-font;
+}
+
+h1 {
+font-size: $small-font;
+}
+h2 {
+    @extend h1
+}
+nav {
+    ul {
+        margin-top: $small-font;
+        display: flex;
+        justify-content: center;
+        margin-bottom: $small-font;
+        background-color: rgba(128, 128, 128, 0.397);
+        }
+        li {
+            padding: $small-font;
+            list-style: none;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+                font-family: Arial, Helvetica, sans-serif;
+                }
+}
+.main {
+display: flex;
+flex-flow: column nowrap;
+}
+.section {
+margin: $small-font;
+font-family: Arial, Helvetica, sans-serif;
+}
+.first_article, .second_article {
+@extend .section
+}
+.first_article > h3, .second_article > h3 {
+    @include article-color;
+}
+.section > h3, .first_article > h3, .second_article > h3 {
+    @include margin-b
+}
+.aside {
+display: flex;
+flex-flow: row wrap;
+justify-content: center;
+}
+.first_aside {
+margin: .5rem;
+border: 0.2rem solid rgba(0, 0, 255, 0.678);    
+padding: $small-font;
+width: 45%;
+}
+.second_aside, .third_aside, .fourth_aside {
+    @extend .first_aside
+}
+.first_aside > h3, .second_aside > h3, .third_aside > h3, .fourth_aside > h3 {
+    @include color
+}
+.footer {
+height: 6rem;
+text-align: center;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+padding: $small-font;
+background-color: rgba(128, 128, 128, 0.658);
+margin-top: 3rem;
+}
+@media only screen and (min-width: 1024px) {
+.main {
+display: flex;
+flex-flow: row wrap;
+justify-content: center;
+}
+.section {
+width: 30%;
+}
+.first_article, .second_article {
+    @extend .section
+}
+}
+
+
+
+
+
